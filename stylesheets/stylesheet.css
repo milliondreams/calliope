@@ -85,7 +85,6 @@ header h2 {
   color: #9ddcff;
   font-weight: normal;
   line-height: 1.3;
-  width: 540px;
   letter-spacing: 0;
 }
 
@@ -380,7 +379,7 @@ footer a:hover {
   .inner {
     width: 740px;
   }
-  header h1, header h2 {
+  header h1 {
     width: 340px;
   }
   header h1 {
@@ -423,7 +422,6 @@ footer a:hover {
   }
   header h2 {
     font-size: 24px;
-    width: 950px;
   }
   header a.button {
     background-image: none;
