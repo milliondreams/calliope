@@ -51,9 +51,11 @@ import com.tuplejump.calliope.utils.RichByteBuffer._
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.CasBuilder
 
-val cas = CasBuilder.cql3.with("casDemo", "Words").("UPDATE casDemo.words set book_name = ?, book_content = ? where book_id = ?")
+val cas = CasBuilder.cql3.with("casDemo", "Words").("UPDATE casDemo.words set book_name = ?, book_content = ?")
 rdd.cql3SaveToCassandra(cas)
 ```
+
+This will use the Keys from the first map in the RDD to write the alues from the second. It only allows Update query, if the keys don't already exist a new row will be created, if it does it will be updated. If the row exists and a column value is not provided, that colmun will be deleted.
 
 ## Thrift 
 In this method internally we use ColumnFamilyInputFormat and ColumnFamilyOutputFormat. This method is older and more tested, but will not be able to read from CQL3 Column Families with composite keys.
