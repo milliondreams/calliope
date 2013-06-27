@@ -340,12 +340,13 @@ dl dd {
 }
 
 footer {
-  background: transparent url('../images/hr.png') 0 0 no-repeat;
+  background: transparent url('../images/header-bg.jpg') 0 0 no-repeat;
   margin-top: 40px;
   padding-top: 20px;
   padding-bottom: 30px;
   font-size: 13px;
   color: #aaa;
+  text-align:center;
 }
 
 footer a {
