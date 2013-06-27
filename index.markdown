@@ -42,7 +42,7 @@ To fully appreciate the ease and terseness of the above code, I recomend you tak
 ###Writing to Cassandra
 To write an RDD[String, Map[String, String]] a **Column Family** names *Words* from a **keyspace** *casDemo* 
 
-```
+```Scala
 import com.tuplejump.calliope.RichByteBuffer._
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.CasBuilder
