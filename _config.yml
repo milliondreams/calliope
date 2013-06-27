@@ -1,4 +1,5 @@
 markdown: redcarpet
 pygments: true
 permalink: /:title
+source: _markdown
 
