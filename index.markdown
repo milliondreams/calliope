@@ -3,8 +3,6 @@ layout: default
 title: Calliope, by tuplejump
 ---
 
-Calliope is a library providing an interface to consume data from Cassandra to spark and store RDDs from Spark to Cassandra.
-
 Why Cassandra + Spark?
 ----------------------
 Cassandra + Spark is the match made in heaven! Spark with it's in memory mapreduce allows us to process data upto 10x faster than Hadoop MapReduce, opening doors to iterative map reduce, complex process chains in a plain and simple start and so much more. Spark did away with the complex setup and configuration required by Hadoop M/R in it's early days. Overall, it make big data crunching fun!
