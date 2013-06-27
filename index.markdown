@@ -2,7 +2,6 @@
 layout: default
 title: Calliope, by tuplejump
 ---
-# Calliope
 
 Calliope is a library providing an interface to consume data from Cassandra to spark and store RDDs from Spark to Cassandra.
 
