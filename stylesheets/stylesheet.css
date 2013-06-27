@@ -340,7 +340,7 @@ dl dd {
 }
 
 footer {
-  background: transparent url('../images/header-bg.jpg') 0 0 no-repeat;
+  background: transparent url('../images/header-bg.jpg');
   margin-top: 40px;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -350,10 +350,14 @@ footer {
 }
 
 footer a {
-  color: #666;
+  color: #008;
 }
 footer a:hover {
-  color: #444;
+  color: #348;
+}
+
+footer p {
+  color: #EEE;
 }
 
 /* MISC */

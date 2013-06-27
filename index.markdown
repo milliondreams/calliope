@@ -25,7 +25,7 @@ Here you go!
 ###Reading from Cassandra
 To read a **Column Family** names *Words* from a **keyspace** *casDemo* and create an RDD from it, here is the code required using Calliope, considering the **key** is a *String* and the **row** has all column names and values as *String*.
 
-```Scala
+```scala
 import com.tuplejump.calliope.RichByteBuffer._
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.CasBuilder
@@ -42,7 +42,7 @@ To fully appreciate the ease and terseness of the above code, I recomend you tak
 ###Writing to Cassandra
 To write an RDD[String, Map[String, String]] a **Column Family** names *Words* from a **keyspace** *casDemo* 
 
-```Scala
+```scala
 import com.tuplejump.calliope.RichByteBuffer._
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.CasBuilder
