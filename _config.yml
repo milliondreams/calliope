@@ -1,4 +1,5 @@
 markdown: redcarpet
 pygments: true
 permalink: /:title
+baseurl: "http://tuplejump.github.io/calliope"
 

@@ -3,7 +3,7 @@ layout: default
 title: Getting Started - Calliope
 ---
 
-# Getting started
+# Lights, Camera, Action!
 
 This assumes you have a working Spark and Cassandra setup. Ideally you would install your cluster such that the spark workers run on the same servers as the cassandra nodes, to ensure best data locality and reduce network traffic.
 

@@ -5,7 +5,7 @@ title: The code - Calliope
 
 # Enough, talk, show me the Code
 
-Here you go!
+Ok! I'll shut up for a while, here is the code . . .
 
 ## CQL3
 This method uses the brand new CqlPagingInputFormat and CqlPagingOutputFormat. This is a fresh out of the mint interface and may have bugs/issues, but the good part is it can read any Column Fmailies, event the ones created with CQL3 and using Composite keys.
@@ -19,15 +19,17 @@ import com.tuplejump.calliope.utils.RichByteBuffer._
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.CasBuilder
 
-val cas = CasBuilder.cql3.with("casDemo", "Words")
+val cas = CasBuilder.cql3.withColumnFamily("casDemo", "Words")
 val rdd = sc.cql3Cassandra[Map[String, String], Map[String, String](cas)
 
 ```
 
 or since we don't need to customize any of the advanced Cassandra connection options, you can use the simplified API,
+
 ```scala
 val rdd = sc.cql3Cassandra[Map[String, String], Map[String, String]("Words", "casDemo")
 ```
+
 or when Cassandra is not on the same host as the SparkContext,
 
 ```scala
@@ -37,7 +39,7 @@ val rdd = sc.cql3Cassandra[Map[String, String], Map[String, String]("casserver.l
 And now you have a RDD! Further you can also use a where predicate in line with the CQL3 where predicates, i.e. should atleast have 1 EqualTo condition and can be only on columns with secodary indexes.
 
 ```scala
-val cas = CasBuilder.cql3.with("casDemo", "Words").where("book = 'The Three Musketeers'")
+val cas = CasBuilder.cql3.withColumnFamily("casDemo", "Words").where("book = 'The Three Musketeers'")
 val rdd = sc.cql3Cassandra[Map[String, String], Map[String, String](cas)
 ```
 This will use the Cassandra secondary index to filter out the data and will give you faster results...
@@ -51,7 +53,7 @@ import com.tuplejump.calliope.utils.RichByteBuffer._
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.CasBuilder
 
-val cas = CasBuilder.cql3.with("casDemo", "Words").("UPDATE casDemo.words set book_name = ?, book_content = ?")
+val cas = CasBuilder.cql3.withColumnFamily("casDemo", "Words").("UPDATE casDemo.words set book_name = ?, book_content = ?")
 rdd.cql3SaveToCassandra(cas)
 ```
 
@@ -69,15 +71,17 @@ import com.tuplejump.calliope.utils.RichByteBuffer._
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.CasBuilder
 
-val cas = CasBuilder.thrift.with("casDemo", "Words")
+val cas = CasBuilder.thrift.withColumnFamily("casDemo", "Words")
 val rdd = sc.thriftCassandra[String, Map[String, String](cas)
 
 ```
 
 or since we don't need to customize any of the advanced Cassandra connection options, you can use the simplified API,
+
 ```scala
 val rdd = sc.thriftCassandra[String, Map[String, String]("Words", "casDemo")
 ```
+
 or when Cassandra is not on the same host as the SparkContext,
 
 ```scala
@@ -98,7 +102,7 @@ import com.tuplejump.calliope.RichByteBuffer._
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.CasBuilder
 
-val cas = CasBuilder.thrift.with("casDemo", "Words")
+val cas = CasBuilder.thrift.withColumnFamily("casDemo", "Words")
 rdd.thriftSaveToCassandra(cas)
 ```
 
