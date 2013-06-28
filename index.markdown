@@ -4,7 +4,7 @@ title: Calliope, by tuplejump
 ---
 
 # Are you selling snake oil?
-No, this is not a hoax! It's a fact, Spark with Cassandra is the magical and we make the trick a bit easier! 
+No, this is not a hoax! It's a fact, Spark with Cassandra is 'magical' and we make the trick a bit easier!
 
 ## Why Cassandra + Spark?
 Cassandra + Spark is the match made in heaven! Spark with it's in memory mapreduce allows us to process data upto 10x faster than Hadoop MapReduce, opening doors to iterative map reduce, complex process chains in a plain and simple start and so much more. Spark did away with the complex setup and configuration required by Hadoop M/R in it's early days. Overall, it make big data crunching fun!

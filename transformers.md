@@ -32,3 +32,52 @@ ByteBuffer => K and Map[ByteBuffer, ByteBuffer] => V where the first one takes t
 
 * **(rdd:RDD[U]).thriftSaveToCassandra**
 U => ByteBuffer and U => Map[ByteBuffer, ByteBuffer] used to convert the RDD entry to a key and column of maps.
+
+## RichByteBuffer
+
+The RichByteBuffer Object sypplies a number of implicits to conver the data coming from Cassandra to Scala objects. This allows you to work directly with simple datatypes like strings and numbers without worrying about the conversions.
+
+Moreover it also helps you in writing your own transformers easily and we will see in the next section.
+
+## Your own transformers
+
+The best way to explain writing transformers, I feel, is to show some code,
+
+* (Map[String, ByteBuffer], Map[String, ByteBuffer]) =>
+    case class Employee(empid:String, deptid:String, name:String, age:Long, address:String)
+
+```scala
+import com.tuplejump.calliope.utils.RichByteBuffer._
+implicit def CasMap2Employee(k:Map[String, ByteBuffer], v:Map[String, ByteBuffer]) =
+    Employee(k("empid"), k("deptid"), v("name"), v("age"), v("address"))
+```
+
+As you see, we didn't have to worry about the difference in types of name being a String and age a Long. It's all the same to us, as the RichByteBuffer will kick in here and take care of the types.
+
+* case class Employee(empid:String, deptid:String, name:String, age:Long, address:String) =>
+    (Map[String, ByteBuffer], Map[String, ByteBuffer])
+
+To go the other way round,
+
+```scala
+import com.tuplejump.calliope.utils.RichByteBuffer._
+implicit def Employee2CasMap(e:Employee) =
+    Map(
+        "empid" -> e.empid,
+        "deptid" -> e.deptid,
+        "name" -> e.name,
+        "age" -> e.age,
+        "address" -> e.address
+    )
+```
+
+It's that simple
+
+## Why?
+
+So the power of deciding how and what to transform lies with you!
+
+In the coming releases we plan to automate the transformers for you, using Macros, but the transformers will always be available to help you use a cutom serializer/deserilizer.
+
+
+
