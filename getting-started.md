@@ -11,15 +11,16 @@ This assumes you have a working Spark and Cassandra setup. Ideally you would ins
 
 Download the released jar and add it to your Spark shell classpath and the workers using sc.addJar, or if you build Spark from trunk or using a version newer than Spark 0.7.2 you can use the ADD_JARS environment variable to do this.
 
-Then you should import Implicits._, RichByteBuffer._ and CasBuilder to start using Calliope.
+## Using it in your project
+
+Add Calliope Jar as dependency to your project build file.
+
+## Imports
+
+Then you should import Implicits._, RichByteBuffer._ and CasBuilder in you shell or the Scala file where you want to use Calliope.
 
 ```scala
 import com.tuplejump.calliope.Implicits._
 import com.tuplejump.calliope.utils.RichByteBuffer._
 import com.tuplejump.calliope.CasBuilder
 ```
-
-## Using it in your project
-
-Add Calliope Jar as dependency to your project build file.
-
