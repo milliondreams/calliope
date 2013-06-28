@@ -24,5 +24,5 @@ import com.tuplejump.calliope.CasBuilder
 Add Calliope as dependency to your project build file. In SBT you can add,
 
 ```scala
-libraryDependencies += "com.tuplejump" % "calliope" % "0.7.2"
+libraryDependencies += "com.tuplejump" % "calliope" % "0.7.3"
 ```
