@@ -30,3 +30,5 @@ libraryDependencies += "com.tuplejump" %% "calliope" % "0.7.3"
 **Note on Scala version**
 Calliope is buil with Scala 2.9.3, the same version as the current release of Spark. In future when Spark moves on to newer Scala version, we will try to keep releasing Calliope with all the versions of Scala for which Spark is available.
 
+
+Join the chat at https://gitter.im/milliondreams/calliope
